@@ -181,7 +181,7 @@ def removeIndependencies(G,var,pTable):
         #print 'this is p2:', p2
         indep = True
         for i in range(len(p1)):
-            print 'this is p1[i] and p2[i]:', p1[i], p2[i]
+            #print 'this is p1[i] and p2[i]:', p1[i], p2[i]
             if not Decimal(p1[i]) == Decimal(p2[i]): #isclose(p1[i],p2[i]):
                 if Decimal(p1[i]) == Decimal(-1) or Decimal(p2[i]) == Decimal(-1): # turn into Decimal value comparisons
                     break
