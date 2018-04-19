@@ -260,9 +260,9 @@ def saveNetwork(G, Theta, permutation):
             for i in range(0, len(data),2):
                 new_data.append((data[i], data[i+1]))
             data = new_data
-        for i in range(0,len(data),2):
-            bn_file.write(str(tuple(data[i])).replace(',', ''))
-            bn_file.write(';\n}\n\n')
+
+        bn_file.write(str(tuple(data)).replace(',', ''))
+        bn_file.write(';\n}\n\n')
     bn_file.close
 
 print "relations:", relations
