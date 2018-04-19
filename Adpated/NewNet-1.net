@@ -1,0 +1,52 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@ec52e37";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@447fdf07";
+	node_size = (130.0 55.0);
+}
+
+node S
+{
+	states = ("On" "Off" );
+	position = (80 -60);
+	ismapvariable = "false";
+	ID = "S";
+	label = "SPRINKLER";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node R
+{
+	states = ("Yes" "No" );
+	position = (290 -60);
+	ismapvariable = "false";
+	ID = "R";
+	label = "RAIN";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node G
+{
+	states = ("Yes" "No" );
+	position = (195 -160);
+	ismapvariable = "false";
+	ID = "G";
+	label = "GRASS WET";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( S | )
+{
+	data = (	0.8	0.2	);
+}
+potential ( R | )
+{
+	data = (	0.8	0.2	);
+}
+potential ( G | R S )
+{
+	data = (((	0.99	0.01	)
+		(	0.1	0.9	))
+		((	0.2	0.8	)
+		(	0	1	)));
+}

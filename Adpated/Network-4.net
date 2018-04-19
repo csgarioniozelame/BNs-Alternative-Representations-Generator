@@ -1,0 +1,62 @@
+net
+{
+	
+}
+
+node B
+{
+	states = ("Present" "Absent" );
+	ID = "B";
+	position = (10 0);
+	label = "B: Burglary";
+}
+node E
+{
+	states = ("Present" "Absent" );
+	ID = "E";
+	position = (50 0);
+	label = "E: Earthquake";
+}
+node A
+{
+	states = ("On" "Off" );
+	ID = "A";
+	position = (30 -30);
+	label = "A: Alarm";
+}
+node J
+{
+	states = ("Present" "Absent" );
+	ID = "J";
+	position = (10 -50);
+	label = "J: JohnCalls";
+}
+node M
+{
+	states = ("Present" "Absent" );
+	ID = "M";
+	position = (50 -50);
+	label = "M: MaryCalls";
+}
+potential ( B |  )
+{
+	data = (	0.999	0.001	);
+}
+potential ( E |  )
+{
+	data = (  0.998    0.002);
+}
+potential ( A | B E)
+{
+	data = (((	0.999	0.001	)(	0.71	0.29	))((	0.06	0.94	)(	0.05	0.95	)));
+}
+potential ( J | A )
+{
+	data = ((	0.95	0.05	)
+		(	0.10	0.90	));
+}
+potential ( M | A )
+{
+	data = ((	0.99	0.01	)
+		(	0.30	0.70	));
+}

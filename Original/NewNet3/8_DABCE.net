@@ -1,0 +1,116 @@
+net
+{
+	HRUNTIME_Propagate_AutoNormal = "1";
+	HR_Font_Size = "-12";
+	HRUNTIME_Font_Size = "-12";
+	HR_Grid_GridSnap = "1";
+	HRUNTIME_Propagate_AutoSum = "1";
+	HR_Propagate_AutoNormal = "1";
+	node_size = (100.0 40.0);
+	HRUNTIME_Monitor_GraphPrecision = "100";
+	HR_Grid_GridShow = "0";
+	HR_Font_Name = "Arial";
+	HR_Compile_ApproxEpsilon = "0.00001";
+	HRUNTIME_Monitor_AutoUpdGraph = "0";
+	HRUNTIME_Font_Name = "Arial";
+	HRUNTIME_Font_Weight = "400";
+	HR_Font_Weight = "400";
+	HR_Monitor_AutoUpdGraph = "0";
+	HRUNTIME_Compile_Compress = "0";
+	HR_Compile_Compress = "0";
+	HRUNTIME_Compile_TriangMethod = "0";
+	HR_Grid_Y = "10";
+	HR_Grid_X = "10";
+	HR_Groups_GroupNames = "";
+	HR_Compile_Approximate = "0";
+	HRUNTIME_Compile_Approximate = "0";
+	HR_Compile_TriangMethod = "0";
+	HR_Color_DiscreteChance = "16";
+	HRUNTIME_Compile_ApproxEpsilon = "0.00001";
+	HR_Monitor_InitStates = "5";
+	HRUNTIME_Grid_GridSnap = "1";
+	HR_Color_ContinuosChance = "48";
+	HRUNTIME_Propagate_Auto = "0";
+	HR_Groups_GroupColors = "";
+	HR_Monitor_OpenGraph = "0";
+	HRUNTIME_Grid_GridShow = "0";
+	HR_Monitor_InitSD = "2";
+	HR_Groups_UserGroupsNo = "0";
+	HR_Color_Decision = "17";
+	HRUNTIME_Monitor_InitStates = "5";
+	HRUNTIME_Grid_Y = "10";
+	HRUNTIME_Grid_X = "10";
+	HR_Propagate_Auto = "0";
+	HR_Monitor_GraphPrecision = "100";
+	HRUNTIME_Font_Italic = "0";
+	HRUNTIME_Monitor_OpenGraph = "0";
+	HR_Font_Italic = "0";
+	HR_Propagate_AutoSum = "1";
+	HR_Color_Utility = "36";
+}
+
+node A
+{
+	states = ("Present" "Absent");
+	ID = "A";
+	position = (131 0);
+	label = "A:Metastatic Cancer";
+}
+
+node C
+{
+	states = ("Present" "Absent");
+	ID = "C";
+	position = (255 128);
+	label = "C:  Brain Tumor";
+}
+
+node B
+{
+	states = ("Increased" "Not increased");
+	ID = "B";
+	position = (0 128);
+	label = "B: Serum Calcium";
+}
+
+node E
+{
+	states = ("Present" "Absent");
+	ID = "E";
+	position = (414 266);
+	label = "E: Severe Headaches";
+}
+
+node D
+{
+	states = ("Present" "Absent");
+	ID = "D";
+	position = (147 256);
+	label = "D: Coma";
+}
+
+potential ( A | D )
+{
+	data = ((0.8475836431226766 0.15241635687732344) (0.7640449438202247 0.23595505617977533));
+}
+
+potential ( C | D A B )
+{
+	data = ((((0.7692307692307693 0.2307692307692308) (0.4 0.6000000000000001)) ((0.9523809523809522 0.047619047619047616) (0.8 0.2))) (((0.0 1.0) (0.4 0.6000000000000001)) ((0.0 1.0) (0.8 0.2))));
+}
+
+potential ( B | D A )
+{
+	data = (((0.9122807017543859 0.08771929824561403) (0.5121951219512195 0.4878048780487805)) ((0.7058823529411766 0.29411764705882354) (0.047619047619047616 0.9523809523809522)));
+}
+
+potential ( E | A C )
+{
+	data = (((0.4 0.6) (0.19999999999999998 0.7999999999999999)) ((0.4 0.6) (0.2 0.8)));
+}
+
+potential ( D |  )
+{
+	data = (0.4304 0.5696);
+}
+

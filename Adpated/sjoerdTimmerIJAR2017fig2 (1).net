@@ -1,0 +1,70 @@
+net
+{
+    node_size = (70 20);
+}
+
+node P
+{
+	states = ("true" "false");
+	ID = "Psych_report";
+	position = (100 80);
+	label = "Psych_report";
+}
+
+node M
+{
+	states = ("true" "false");
+	ID = "Motive";
+	position = (150 150);
+	label = "Motive";
+}
+
+node C
+{
+	states = ("true" "false");
+	ID = "Crime";
+	position = (200 80);
+	label = "Crime";
+}
+
+node D
+{
+	states = ("true" "false");
+	ID = "DNA_match";
+	position = (250 10);
+	label = "DNA_match";
+}
+
+node T
+{
+	states = ("true" "false");
+	ID = "Twin";
+	position = (300 80);
+	label = "Twin";
+}
+
+potential ( M |  )
+{
+	data = (0.05 0.95);
+}
+
+potential ( P | M )
+{
+	data = ((0.6 0.4) (0.1 0.9));
+}
+
+potential ( C | M )
+{
+	data = ((0.5 0.5) (0.01 0.99));
+}
+
+potential ( D | C T )
+{
+	data = (((1.0	0.0) (	1.0	0.0	))
+		((	1.0 0.0	) (0.001 0.999)));
+}
+
+potential ( T |  )
+{
+	data = (0.01 0.99);
+}
