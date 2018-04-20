@@ -174,34 +174,35 @@ def generateBN(jpd, sequence):
     return G, Theta
 
 def removeIndependencies(G,var,pTable):
-    print 'before',pTable
-    for v in G[var]:
-        p1 = zip(*sliceTable(pTable, v, 0)[1:])[-1]
-        p2 = zip(*sliceTable(pTable, v, 1)[1:])[-1]
-        #print 'this is p1[',v,']:', p1
-        #print 'this is p2[',v,']:', p2
-        indep = True
-        for i in range(len(p1)):
-            if Decimal(p1[i]) == Decimal(p2[i]):
-				print G[var]
-				print 'this is p1[i] and p2[i]:', p1[i], p2[i], v
-				print 'they are the same'
-            if not Decimal(p1[i]) == Decimal(p2[i]): #isclose(p1[i],p2[i]):
-                if Decimal(p1[i]) == Decimal(-1) or Decimal(p2[i]) == Decimal(-1): # turn into Decimal value comparisons
-                    break
-                indep = False
-                break
+    #print 'before',pTable
+    for i in range(len(G[var])):
+		for v in G[var]:
+			p1 = zip(*sliceTable(pTable, v, 0)[1:])[-1]
+			p2 = zip(*sliceTable(pTable, v, 1)[1:])[-1]
+			#print 'this is p1[',v,']:', p1
+			#print 'this is p2[',v,']:', p2
+			indep = True
+			for i in range(len(p1)):
+				#if Decimal(p1[i]) == Decimal(p2[i]):
+				#	print G[var]
+				#	print 'this is p1[i] and p2[i]:', p1[i], p2[i], v
+				#	print 'they are the same'
+				if not Decimal(p1[i]) == Decimal(p2[i]): #isclose(p1[i],p2[i]):
+					if Decimal(p1[i]) == Decimal(-1) or Decimal(p2[i]) == Decimal(-1): # turn into Decimal value comparisons
+						break
+					indep = False
+					break
         
-        print 'indep is', indep
-        if indep:
-            G[var].remove(v)
-            print v, 'is removed from', G[var]
-            pTable = sliceTable(pTable, v, 0)
-            i = pTable[0].index(v)
-            for r in pTable:
-                del r[i]              # remove column from table
+			#print 'indep is', indep
+			if indep:
+				G[var].remove(v)
+				#print v, 'is removed from', G[var]
+				pTable = sliceTable(pTable, v, 0)
+				i = pTable[0].index(v)
+				for r in pTable:
+					del r[i]              # remove column from table
     
-    print 'after',pTable            
+    #print 'after',pTable            
     return pTable
 
 
@@ -237,7 +238,7 @@ def saveNetwork(G, Theta, permutation):
         a += len(G[v])
     
     file_name = str(a) + '_' + ''.join(permutation) + '.net'
-    print file_name
+    #print file_name
     folder = 'networks for ' + str(variables.keys())
     directory = os.path.join(os.path.dirname(__file__),folder)
     if not os.path.exists(directory):
