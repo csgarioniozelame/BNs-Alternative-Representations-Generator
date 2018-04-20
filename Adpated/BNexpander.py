@@ -175,7 +175,7 @@ def generateBN(jpd, sequence):
 
 def removeIndependencies(G,var,pTable):
     #print 'before',pTable
-    for i in range(len(G[var])):
+    for c in range(len(G[var])):
 		for v in G[var]:
 			p1 = zip(*sliceTable(pTable, v, 0)[1:])[-1]
 			p2 = zip(*sliceTable(pTable, v, 1)[1:])[-1]
