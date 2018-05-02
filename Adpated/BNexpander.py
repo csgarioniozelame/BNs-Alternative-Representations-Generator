@@ -187,7 +187,7 @@ def removeIndependencies(G,var,pTable):
 				#	print G[var]
 				#	print 'this is p1[i] and p2[i]:', p1[i], p2[i], v
 				#	print 'they are the same'
-				if not Decimal(p1[i]) == Decimal(p2[i]): #isclose(p1[i],p2[i]):
+				if not isclose(p1[i],p2[i]):
 					if Decimal(p1[i]) == Decimal(-1) or Decimal(p2[i]) == Decimal(-1): # turn into Decimal value comparisons
 						break
 					indep = False
@@ -285,6 +285,7 @@ for l in jpd:
 
 graphs = {}
 CPTs = {}
+
 for p in permutations(variables.keys(), len(variables.keys())):
     G, Theta = generateBN(jpd, p)
     duplicate = False
