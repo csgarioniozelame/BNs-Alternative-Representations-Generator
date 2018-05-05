@@ -1,54 +1,64 @@
 net
 {
-	
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@36f3f021";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@b1cbc13";
+	node_size = (130 55);
 }
 
-node B
-{
-	states = ("Present" "Absent" );
-	ID = "B";
-	position = (10 0);
-	label = "B: Burglary";
-}
-node E
-{
-	states = ("Present" "Absent" );
-	ID = "E";
-	position = (50 0);
-	label = "E: Earthquake";
-}
-node A
-{
-	states = ("On" "Off" );
-	ID = "A";
-	position = (30 -30);
-	label = "A: Alarm";
-}
 node J
 {
 	states = ("Present" "Absent" );
-	ID = "J";
-	position = (10 -50);
-	label = "J: JohnCalls";
+	position = (179 -367);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "JohnCalls";
+	excludepolicy = "include whole CPT";
 }
 node M
 {
 	states = ("Present" "Absent" );
-	ID = "M";
-	position = (50 -50);
-	label = "M: MaryCalls";
+	position = (446 -365);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable4";
+	label = "MaryCalls";
+	excludepolicy = "include whole CPT";
 }
-potential ( B |  )
+node B
 {
-	data = (	0.999	0.001	);
+	states = ("Present" "Absent" );
+	position = (169 -128);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "Burglary";
+	excludepolicy = "include whole CPT";
 }
-potential ( E |  )
+node A
 {
-	data = (  0.998    0.002);
+	states = ("On" "Off" );
+	position = (310 -252);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "Alarm";
+	excludepolicy = "include whole CPT";
 }
-potential ( A | B E)
+node E
 {
-	data = (((	0.999	0.001	)(	0.71	0.29	))((	0.06	0.94	)(	0.05	0.95	)));
+	states = ("Present" "Absent" );
+	position = (442 -130);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Earthquake";
+	excludepolicy = "include whole CPT";
 }
 potential ( J | A )
 {
@@ -59,4 +69,19 @@ potential ( M | A )
 {
 	data = ((	0.99	0.01	)
 		(	0.30	0.70	));
+}
+potential ( B | )
+{
+	data = (	0.999	0.001	);
+}
+potential ( A | B E )
+{
+	data = (((	0.999	0.001	)
+		(	0.71	0.29	))
+		((	0.06	0.94	)
+		(	0.05	0.95	)));
+}
+potential ( E | )
+{
+	data = (	0.998	0.002	);
 }
