@@ -91,7 +91,7 @@ potential ( E | C )
 }
 potential ( C | A )
 {
-	data = ((	0.4	0.6	)
+	data = ((	0.95	0.05	)
 		(	0.8	0.2	));
 }
 potential ( A | )
