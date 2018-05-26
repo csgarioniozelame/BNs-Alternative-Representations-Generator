@@ -58,7 +58,8 @@ while True:
         for index, item in enumerate(data): # convert all input probabilites to Decimals
 			#print 'this is index', index  #i.e. 0,1,2,3...
 			data[index] = Decimal(str(item))
-			#print 'this is data[index]', data[index]  #i.e. probability
+			#print 'this is data[',index,']', data[index]  #i.e. probability
+        data.reverse()
         potential[ID] = data
         #print 'potential is :',potential[ID]
     if line =="":
@@ -264,20 +265,23 @@ def saveNetwork(G, Theta, permutation):
         bn_file.write('\tdata = ')
         
         data = zip(*Theta[v][1:])[-1]
-        while len(data) > 2:
-            new_data = []
-            for i in range(0, len(data),2):
-                new_data.append((data[i], data[i+1]))
-            data = new_data
 
+        
+        #while len(data) > 2:
+        #print v, len(data)
+        new_data = []
+        for i in range(len(data)-1, 0,-2):
+            new_data.append((data[i], data[i-1]))
+        data = new_data
+        
         bn_file.write(str(tuple(data)).replace(',', ''))
         bn_file.write(';\n}\n\n')
     bn_file.close
 
-print "relations:", relations
-print "potential:", potential
-print "variables:", variables
-
+print "Relations:\n", relations
+print "\nPotentials (in reversed order due to python index):\n", potential
+print "\nVariables:\n", variables
+print "\nFull Joint Probability Distribution:"
 jpd = makeJPD()
 
 for l in jpd:
