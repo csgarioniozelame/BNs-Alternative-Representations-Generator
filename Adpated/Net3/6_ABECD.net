@@ -91,7 +91,7 @@ node D
 
 potential ( A |  )
 {
-	data = ((Decimal('0.20000') Decimal('0.800000')));
+	data = ((Decimal('0.200000') Decimal('0.8000000')));
 }
 
 potential ( C | A E )
@@ -111,6 +111,6 @@ potential ( E | A )
 
 potential ( D | B C )
 {
-	data = ((Decimal('0.8') Decimal('0.2')) (Decimal('0.8') Decimal('0.2')) (Decimal('0.8') Decimal('0.2')) (Decimal('0') Decimal('1')));
+	data = ((Decimal('0.8') Decimal('0.2')) (Decimal('0.8') Decimal('0.2')) (Decimal('0.8') Decimal('0.2')) (Decimal('0.01') Decimal('0.99')));
 }
 

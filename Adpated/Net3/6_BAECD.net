@@ -101,7 +101,7 @@ potential ( C | A E )
 
 potential ( B |  )
 {
-	data = ((Decimal('0.320000') Decimal('0.680000')));
+	data = ((Decimal('0.320000') Decimal('0.6800000')));
 }
 
 potential ( E | A )
@@ -111,6 +111,6 @@ potential ( E | A )
 
 potential ( D | B C )
 {
-	data = ((Decimal('0.8') Decimal('0.2')) (Decimal('0.8') Decimal('0.2')) (Decimal('0.8') Decimal('0.2')) (Decimal('0') Decimal('1')));
+	data = ((Decimal('0.8') Decimal('0.2')) (Decimal('0.8') Decimal('0.2')) (Decimal('0.8') Decimal('0.2')) (Decimal('0.01') Decimal('0.99')));
 }
 
