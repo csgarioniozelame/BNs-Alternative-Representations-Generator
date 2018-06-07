@@ -176,6 +176,10 @@ def generateBN(jpd, sequence):
 
 def removeIndependencies(G,var,pTable):
     #print 'before',pTable
+    #print 'this is G', G
+    #print 'this is var', var
+    #print 'this is G[',var,']', G[var]
+    nullpoint = 0 # record the slice where contains undefined probabilities (if any)
     for c in range(len(G[var])):
 		for v in G[var]:
 			p1 = zip(*sliceTable(pTable, v, 0)[1:])[-1]
@@ -190,7 +194,13 @@ def removeIndependencies(G,var,pTable):
 				#	print 'they are the same'
 				if not isclose(p1[i],p2[i]):
 					if Decimal(p1[i]) == Decimal(-1) or Decimal(p2[i]) == Decimal(-1): # turn into Decimal value comparisons
-						break
+						if ((Decimal(p1[i]) == Decimal(-1)) and (Decimal(p2[i]) != Decimal(-1))):
+							nullpoint = 1
+							#print 'changed1, p1, p2, i:', p1[i], p2[i], i
+						elif ((Decimal(p1[i]) != Decimal(-1)) and (Decimal(p2[i]) == Decimal(-1))):
+							nullpoint = 2
+							#print 'changed2, p2, p1, i:', p2[i],p1[i], i
+						continue
 					indep = False
 					break
         
@@ -198,7 +208,10 @@ def removeIndependencies(G,var,pTable):
 			if indep:
 				G[var].remove(v)
 				#print v, 'is removed from', G[var]
-				pTable = sliceTable(pTable, v, 0)
+				if nullpoint < 2:
+					pTable = sliceTable(pTable, v, 1)
+				if nullpoint == 2:
+					pTable = sliceTable(pTable, v, 0)
 				i = pTable[0].index(v)
 				for r in pTable:
 					del r[i]              # remove column from table
