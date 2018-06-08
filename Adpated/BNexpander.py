@@ -234,7 +234,7 @@ def findCP(jpd, vars, vals):
     if lastSum == Decimal(0):
         return Decimal(-1) # undefined
     else:
-        return pSum / lastSum
+        return Decimal(pSum / lastSum)
 
 def sliceTable(pTable, var, val):   # returns sliced JPD given variable instance i.e. (jpd, 'A', 1)
     i = pTable[0].index(var)
