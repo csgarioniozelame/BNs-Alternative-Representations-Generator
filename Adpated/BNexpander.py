@@ -136,10 +136,10 @@ def makeJPD():
             #print 'val is',val  #i.e. 0,1
             #print 'values is', values  #i.e. [0,0]
 
-            for r in Theta[V[i]]:
+            for rownr in Theta[V[i]]:
                 #print 'r[] is', r[:len(r)-1]  #i.e. [0,0]
-                if values == r[:len(r)-1]:
-                    p *= Decimal(str(r[len(r)-1]))
+                if values == rownr[:len(rownr)-1]:
+                    p *= Decimal(str(rownr[len(rownr)-1]))
                     #print 'this is p:', p
                     #print 'this is r:', r[len(r)-1]  #i.e. 0.001
         row.append(p)
