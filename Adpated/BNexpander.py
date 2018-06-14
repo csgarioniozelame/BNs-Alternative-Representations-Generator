@@ -13,6 +13,13 @@ argumentParser = argparse.ArgumentParser(description='Process BN file.')
 argumentParser.add_argument('filename', metavar='filename.net', help='a BN file')
 args = argumentParser.parse_args()
 f = open(args.filename)
+filename = str(args.filename)
+record = 0
+for index, letter in enumerate(filename):
+	if letter == '.':
+		record = index
+		break
+filename = filename[:index]
 
 # the following dictionaries are filled with data from the .net file
 variables = {}
@@ -71,8 +78,8 @@ while True:
 # isclose : checks if two Decimals are practically the same
 # this function is not used anymore with the use of Decimals
 # because of more accurate precisions
-def isclose(a, b, rel_tol=Decimal(str(1e-09)), abs_tol=Decimal(str(0.0))):
-    return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
+#def isclose(a, b, rel_tol=Decimal(str(1e-09)), abs_tol=Decimal(str(0.0))):
+#    return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
 
 # num : turns a string into a Decimal
 def num(s):
@@ -253,7 +260,7 @@ def saveNetwork(G, Theta, permutation):
     
     file_name = str(a) + '_' + ''.join(permutation) + '.net'
     #print file_name
-    folder = 'prec-'+ str(getcontext().prec) +' nets for ' + str(variables.keys())
+    folder = 'output ' + filename + ' prec-'+ str(getcontext().prec)
     directory = os.path.join(os.path.dirname(__file__),folder)
     if not os.path.exists(directory):
         os.makedirs(directory)

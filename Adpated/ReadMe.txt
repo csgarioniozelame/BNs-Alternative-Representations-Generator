@@ -1,6 +1,12 @@
-The three networks were created in SamIam and are of the .net format v5.7 of Hugin. These can also be opened and saved with Genie.
+Running Instructions:
 
-The alternative networks that were found for each of the three example networks is found in the 'Alt Nets for Net ..' folders. The naming convention for the found networks is:
+The four Bayesian Networks were created in SamIam (version 3.0) and are of the .net format v5.7 of Hugin.
+
+The alternative representations that were found for each of the four example networks are found in the 'output Network-X pre-Y' folders. 
+
+X is the number of the input network, and Y is the precision places used. 
+
+The naming convention for the found networks is:
 
 [arrow_count]_[permutation].net
 

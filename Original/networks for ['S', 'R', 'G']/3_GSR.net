@@ -1,0 +1,46 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@ec52e37";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@447fdf07";
+	node_size = (130.0 55.0);
+}
+
+node S
+{
+	states = ("On" "Off");
+	ID = "S";
+	position = (80 60);
+	label = "SPRINKLER";
+}
+
+node R
+{
+	states = ("Yes" "No");
+	ID = "R";
+	position = (290 60);
+	label = "RAIN";
+}
+
+node G
+{
+	states = ("Yes" "No");
+	ID = "G";
+	position = (195 160);
+	label = "GRASS WET";
+}
+
+potential ( S | G )
+{
+	data = ((0.5696983284320806 0.4303016715679195) (0.01708412788380365 0.9829158721161964));
+}
+
+potential ( R | G S )
+{
+	data = (((0.11322499259898969 0.8867750074010103) (0.8042228488039934 0.19577715119600655)) ((0.009722082368341557 0.9902779176316584) (0.030823449518112712 0.9691765504818872)));
+}
+
+potential ( G |  )
+{
+	data = (0.18618029 0.8138197100000001);
+}
+

@@ -1,0 +1,46 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@ec52e37";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@447fdf07";
+	node_size = (130.0 55.0);
+}
+
+node S
+{
+	states = ("On" "Off");
+	ID = "S";
+	position = (80 60);
+	label = "SPRINKLER";
+}
+
+node R
+{
+	states = ("Yes" "No");
+	ID = "R";
+	position = (290 60);
+	label = "RAIN";
+}
+
+node G
+{
+	states = ("Yes" "No");
+	ID = "G";
+	position = (195 160);
+	label = "GRASS WET";
+}
+
+potential ( S | G )
+{
+	data = ((Decimal('0.5696983271') Decimal('0.4303016730')) (Decimal('0.01708412674') Decimal('0.9829158733')));
+}
+
+potential ( R | G S )
+{
+	data = ((Decimal('0.1132250303') Decimal('0.8867749694')) (Decimal('0.8042228432') Decimal('0.1957771568')) (Decimal('0.009722010208') Decimal('0.9902779896')) (Decimal('0.03082344503') Decimal('0.9691765549')));
+}
+
+potential ( G |  )
+{
+	data = ((Decimal('0.1861802922') Decimal('0.8138197078')));
+}
+

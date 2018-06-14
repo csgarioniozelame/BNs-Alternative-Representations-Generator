@@ -1,0 +1,59 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@7373d1cb";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@2db706c6";
+	node_size = (130 55);
+}
+
+node BW
+{
+	states = ("T" "F");
+	ID = "BW";
+	position = (145 158);
+	label = "Broken window";
+}
+
+node TB
+{
+	states = ("T" "F");
+	ID = "TB";
+	position = (52 58);
+	label = "Tree branch";
+}
+
+node SF
+{
+	states = ("T" "F");
+	ID = "SF";
+	position = (330 157);
+	label = "Stone found";
+}
+
+node ST
+{
+	states = ("T" "F");
+	ID = "ST";
+	position = (241 59);
+	label = "Stone thrown";
+}
+
+potential ( BW | SF )
+{
+	data = ((Decimal('0.1010310501') Decimal('0.8989689499')) (Decimal('0.002048941480') Decimal('0.9979510585')));
+}
+
+potential ( TB | SF BW )
+{
+	data = ((Decimal('0.01011114473') Decimal('0.9898888553')) (Decimal('0.00001163603039') Decimal('0.9999883639')) (Decimal('0.4412963703') Decimal('0.5587036297')) (Decimal('0.0001280719741') Decimal('0.9998719281')));
+}
+
+potential ( SF |  )
+{
+	data = ((Decimal('0.009797621664') Decimal('0.9902023783')));
+}
+
+potential ( ST | SF BW TB )
+{
+	data = ((Decimal('0.9989282905') Decimal('0.001071709667')) (Decimal('0.9999878913') Decimal('0.00001210875065')) (Decimal('0.9851832708') Decimal('0.01481672963')) (Decimal('0.9986555893') Decimal('0.001344410748')) (Decimal('0.001650339635') Decimal('0.9983496604')) (Decimal('0.1277523003') Decimal('0.8722476997')) (Decimal('0.0001179089992') Decimal('0.9998820914')) (Decimal('0.001315665508') Decimal('0.9986843345')));
+}
+

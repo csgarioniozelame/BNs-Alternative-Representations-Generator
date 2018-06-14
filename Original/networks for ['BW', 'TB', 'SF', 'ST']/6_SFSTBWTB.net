@@ -1,0 +1,59 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@7373d1cb";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@2db706c6";
+	node_size = (130 55);
+}
+
+node BW
+{
+	states = ("T" "F");
+	ID = "BW";
+	position = (145 158);
+	label = "Broken window";
+}
+
+node TB
+{
+	states = ("T" "F");
+	ID = "TB";
+	position = (52 58);
+	label = "Tree branch";
+}
+
+node SF
+{
+	states = ("T" "F");
+	ID = "SF";
+	position = (330 157);
+	label = "Stone found";
+}
+
+node ST
+{
+	states = ("T" "F");
+	ID = "ST";
+	position = (241 59);
+	label = "Stone thrown";
+}
+
+potential ( BW | SF ST )
+{
+	data = (((0.10115116368188438 0.8988488363181155) (0.0016863406408094436 0.9983136593591906)) ((0.10115195264962937 0.8988480473503706) (0.0019039781012935729 0.9980960218987064)));
+}
+
+potential ( TB | SF ST BW )
+{
+	data = ((((0.01010264285136992 0.98989735714863) (1.1368920327743236e-05 0.9999886310796723)) ((0.5 0.5) (0.0 1.0))) (((0.010116891106705859 0.9898831088932942) (7.69260356167545e-06 0.9999923073964384)) ((0.47480306177193937 0.5251969382280606) (0.00012822311429868598 0.9998717768857013))));
+}
+
+potential ( SF |  )
+{
+	data = (0.00979761 0.99020236);
+}
+
+potential ( ST | SF )
+{
+	data = ((0.9987895007047637 0.001210499295236287) (0.0014605499425390182 0.998539450057461));
+}
+
