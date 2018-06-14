@@ -8,7 +8,7 @@ from re import findall
 from itertools import permutations, chain
 from decimal import *
 
-getcontext().prec = 100 # set the value of precision to 100 (if applicable)
+getcontext().prec = input('Set the precision places:\n') # set the value of precision to 100 (if applicable)
 argumentParser = argparse.ArgumentParser(description='Process BN file.')
 argumentParser.add_argument('filename', metavar='filename.net', help='a BN file')
 args = argumentParser.parse_args()
@@ -192,7 +192,7 @@ def removeIndependencies(G,var,pTable):
 				#	print G[var]
 				#	print 'this is p1[i] and p2[i]:', p1[i], p2[i], v
 				#	print 'they are the same'
-				if not isclose(p1[i],p2[i]):
+				if not p1[i] == p2[i]:
 					if Decimal(p1[i]) == Decimal(-1) or Decimal(p2[i]) == Decimal(-1): # turn into Decimal value comparisons
 						if ((Decimal(p1[i]) == Decimal(-1)) and (Decimal(p2[i]) != Decimal(-1))):
 							nullpoint = 1
@@ -253,7 +253,7 @@ def saveNetwork(G, Theta, permutation):
     
     file_name = str(a) + '_' + ''.join(permutation) + '.net'
     #print file_name
-    folder = 'networks for ' + str(variables.keys())
+    folder = 'prec-'+ str(getcontext().prec) +' nets for ' + str(variables.keys())
     directory = os.path.join(os.path.dirname(__file__),folder)
     if not os.path.exists(directory):
         os.makedirs(directory)
