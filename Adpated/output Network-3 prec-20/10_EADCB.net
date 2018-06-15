@@ -1,0 +1,116 @@
+net
+{
+	HRUNTIME_Propagate_AutoNormal = "1";
+	HR_Font_Size = "-12";
+	HRUNTIME_Font_Size = "-12";
+	HR_Grid_GridSnap = "1";
+	HRUNTIME_Propagate_AutoSum = "1";
+	HR_Propagate_AutoNormal = "1";
+	node_size = (100.0 40.0);
+	HRUNTIME_Monitor_GraphPrecision = "100";
+	HR_Grid_GridShow = "0";
+	HR_Font_Name = "Arial";
+	HR_Compile_ApproxEpsilon = "0.00001";
+	HRUNTIME_Monitor_AutoUpdGraph = "0";
+	HRUNTIME_Font_Name = "Arial";
+	HRUNTIME_Font_Weight = "400";
+	HR_Font_Weight = "400";
+	HR_Monitor_AutoUpdGraph = "0";
+	HRUNTIME_Compile_Compress = "0";
+	HR_Compile_Compress = "0";
+	HRUNTIME_Compile_TriangMethod = "0";
+	HR_Grid_Y = "10";
+	HR_Grid_X = "10";
+	HR_Groups_GroupNames = "";
+	HR_Compile_Approximate = "0";
+	HRUNTIME_Compile_Approximate = "0";
+	HR_Compile_TriangMethod = "0";
+	HR_Color_DiscreteChance = "16";
+	HRUNTIME_Compile_ApproxEpsilon = "0.00001";
+	HR_Monitor_InitStates = "5";
+	HRUNTIME_Grid_GridSnap = "1";
+	HR_Color_ContinuosChance = "48";
+	HRUNTIME_Propagate_Auto = "0";
+	HR_Groups_GroupColors = "";
+	HR_Monitor_OpenGraph = "0";
+	HRUNTIME_Grid_GridShow = "0";
+	HR_Monitor_InitSD = "2";
+	HR_Groups_UserGroupsNo = "0";
+	HR_Color_Decision = "17";
+	HRUNTIME_Monitor_InitStates = "5";
+	HRUNTIME_Grid_Y = "10";
+	HRUNTIME_Grid_X = "10";
+	HR_Propagate_Auto = "0";
+	HR_Monitor_GraphPrecision = "100";
+	HRUNTIME_Font_Italic = "0";
+	HRUNTIME_Monitor_OpenGraph = "0";
+	HR_Font_Italic = "0";
+	HR_Propagate_AutoSum = "1";
+	HR_Color_Utility = "36";
+}
+
+node A
+{
+	states = ("Present" "Absent");
+	ID = "A";
+	position = (131 0);
+	label = "A:Metastatic Cancer";
+}
+
+node C
+{
+	states = ("Present" "Absent");
+	ID = "C";
+	position = (255 128);
+	label = "C:  Brain Tumor";
+}
+
+node B
+{
+	states = ("Increased" "Not increased");
+	ID = "B";
+	position = (0 128);
+	label = "B: Serum Calcium";
+}
+
+node E
+{
+	states = ("Present" "Absent");
+	ID = "E";
+	position = (414 266);
+	label = "E: Severe Headaches";
+}
+
+node D
+{
+	states = ("Present" "Absent");
+	ID = "D";
+	position = (147 256);
+	label = "D: Coma";
+}
+
+potential ( A | E )
+{
+	data = ((Decimal('0.22007597924399563174') Decimal('0.77992402075600436828')) (Decimal('0.19800560490997582002') Decimal('0.80199439509002418000')));
+}
+
+potential ( C | E A D )
+{
+	data = ((Decimal('0.31390320088144045655') Decimal('0.68609679911855954345')) (Decimal('0.16726197496680161894') Decimal('0.83273802503319838105')) (Decimal('0.31193010895296151316') Decimal('0.68806989104703848684')) (Decimal('0.020875429167030194052') Decimal('0.97912457083296980596')) (Decimal('0.15024312799043471466') Decimal('0.84975687200956528534')) (Decimal('0.072029834731929961342') Decimal('0.92797016526807003866')) (Decimal('0.14907523028767080212') Decimal('0.85092476971232919789')) (Decimal('0.0081719076272941011271') Decimal('0.99182809237270589885')));
+}
+
+potential ( B | E A D C )
+{
+	data = ((Decimal('0.74385052891588932317') Decimal('0.25614947108411067683')) (Decimal('0.99491561857142402940') Decimal('0.0050843814285759705993')) (Decimal('0.67047907192283521459') Decimal('0.32952092807716478541')) (Decimal('0.32216678027642243250') Decimal('0.67783321972357756750')) (Decimal('0.13913322710948677277') Decimal('0.86086677289051322722')) (Decimal('0.91589978040324911289') Decimal('0.084100219596750887113')) (Decimal('0.10172216779138215454') Decimal('0.89827783220861784546')) (Decimal('0.025770444441406308986') Decimal('0.97422955555859369101')) (Decimal('0.74385052891588932317') Decimal('0.25614947108411067683')) (Decimal('0.99491561857142402939') Decimal('0.0050843814285759705995')) (Decimal('0.67047907192283521458') Decimal('0.32952092807716478542')) (Decimal('0.32216678027642243249') Decimal('0.67783321972357756752')) (Decimal('0.13913322710948677277') Decimal('0.86086677289051322722')) (Decimal('0.91589978040324911290') Decimal('0.084100219596750887111')) (Decimal('0.10172216779138215454') Decimal('0.89827783220861784548')) (Decimal('0.025770444441406308986') Decimal('0.97422955555859369102')));
+}
+
+potential ( E |  )
+{
+	data = ((Decimal('0.61832639915802571187') Decimal('0.38167360084197428812')));
+}
+
+potential ( D | E A )
+{
+	data = ((Decimal('0.64765432812072617168') Decimal('0.35234567187927382828')) (Decimal('0.15772180126836563075') Decimal('0.84227819873163436927')) (Decimal('0.62318599896494061160') Decimal('0.37681400103505938840')) (Decimal('0.13298499106213473241') Decimal('0.86701500893786526757')));
+}
+
