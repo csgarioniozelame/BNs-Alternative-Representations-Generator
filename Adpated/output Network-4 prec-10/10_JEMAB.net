@@ -1,0 +1,72 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@36f3f021";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@b1cbc13";
+	node_size = (130 55);
+}
+
+node A
+{
+	states = ("On" "Off");
+	ID = "A";
+	position = (310 252);
+	label = "Alarm";
+}
+
+node E
+{
+	states = ("Present" "Absent");
+	ID = "E";
+	position = (442 130);
+	label = "Earthquake";
+}
+
+node B
+{
+	states = ("Present" "Absent");
+	ID = "B";
+	position = (169 128);
+	label = "Burglary";
+}
+
+node J
+{
+	states = ("Present" "Absent");
+	ID = "J";
+	position = (179 367);
+	label = "JohnCalls";
+}
+
+node M
+{
+	states = ("Present" "Absent");
+	ID = "M";
+	position = (446 365);
+	label = "MaryCalls";
+}
+
+potential ( A | J E M )
+{
+	data = ((Decimal('0.9980668824') Decimal('0.001933117629')) (Decimal('0.6908868195') Decimal('0.3091131805')) (Decimal('0.7099672469') Decimal('0.2900327531')) (Decimal('0.01048579402') Decimal('0.9895142060')) (Decimal('0.7512000216') Decimal('0.2487999784')) (Decimal('0.01290189759') Decimal('0.9870981024')) (Decimal('0.01411309473') Decimal('0.9858869053')) (Decimal('0.00006196639997') Decimal('0.9999380336')));
+}
+
+potential ( E | J )
+{
+	data = ((Decimal('0.01139496877') Decimal('0.9886050312')) (Decimal('0.001483211108') Decimal('0.9985167888')));
+}
+
+potential ( B | J E M A )
+{
+	data = ((Decimal('0.003268423588') Decimal('0.9967315764')) (Decimal('0.00007048805932') Decimal('0.9999295119')) (Decimal('0.003268423588') Decimal('0.9967315764')) (Decimal('0.00007048805932') Decimal('0.9999295119')) (Decimal('0.4847859722') Decimal('0.5152140278')) (Decimal('0.00006011656602') Decimal('0.9999398834')) (Decimal('0.4847859722') Decimal('0.5152140278')) (Decimal('0.00006011656602') Decimal('0.9999398834')) (Decimal('0.003268423588') Decimal('0.9967315764')) (Decimal('0.00007048805932') Decimal('0.9999295119')) (Decimal('0.003268423588') Decimal('0.9967315764')) (Decimal('0.00007048805932') Decimal('0.9999295119')) (Decimal('0.4847859722') Decimal('0.5152140278')) (Decimal('0.00006011656602') Decimal('0.9999398834')) (Decimal('0.4847859722') Decimal('0.5152140278')) (Decimal('0.00006011656603') Decimal('0.9999398835')));
+}
+
+potential ( J |  )
+{
+	data = ((Decimal('0.05213897570') Decimal('0.9478610244')));
+}
+
+potential ( M | J E )
+{
+	data = ((Decimal('0.6176188392') Decimal('0.3823811608')) (Decimal('0.03331388443') Decimal('0.9666861156')) (Decimal('0.03853098206') Decimal('0.9614690179')) (Decimal('0.01014107739') Decimal('0.9898589226')));
+}
+

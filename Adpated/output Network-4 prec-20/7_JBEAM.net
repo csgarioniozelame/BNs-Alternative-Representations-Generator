@@ -1,0 +1,72 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@36f3f021";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@b1cbc13";
+	node_size = (130 55);
+}
+
+node A
+{
+	states = ("On" "Off");
+	ID = "A";
+	position = (310 252);
+	label = "Alarm";
+}
+
+node E
+{
+	states = ("Present" "Absent");
+	ID = "E";
+	position = (442 130);
+	label = "Earthquake";
+}
+
+node B
+{
+	states = ("Present" "Absent");
+	ID = "B";
+	position = (169 128);
+	label = "Burglary";
+}
+
+node J
+{
+	states = ("Present" "Absent");
+	ID = "J";
+	position = (179 367);
+	label = "JohnCalls";
+}
+
+node M
+{
+	states = ("Present" "Absent");
+	ID = "M";
+	position = (446 365);
+	label = "MaryCalls";
+}
+
+potential ( A | J B E )
+{
+	data = ((Decimal('0.99708454810495626822') Decimal('0.0029154518950437317784')) (Decimal('0.99646643109540636042') Decimal('0.0035335689045936395760')) (Decimal('0.88026981450252951096') Decimal('0.11973018549747048904')) (Decimal('0.017699115044247787611') Decimal('0.98230088495575221239')) (Decimal('0.66666666666666666667') Decimal('0.33333333333333333333')) (Decimal('0.62251655629139072848') Decimal('0.37748344370860927152')) (Decimal('0.041222459132906894101') Decimal('0.95877754086709310590')) (Decimal('0.00010535742506453142285') Decimal('0.99989464257493546858')));
+}
+
+potential ( E | J B )
+{
+	data = ((Decimal('0.0020199831098788363484') Decimal('0.99798001689012116365')) (Decimal('0.011550155527810943626') Decimal('0.98844984447218905637')) (Decimal('0.0018876297331487650928') Decimal('0.99811237026685123491')) (Decimal('0.0014831466785683829179') Decimal('0.99851685332143161708')));
+}
+
+potential ( B | J )
+{
+	data = ((Decimal('0.016283729946769936257') Decimal('0.98371627005323006374')) (Decimal('0.00015928811938596344709') Decimal('0.99984071188061403655')));
+}
+
+potential ( J |  )
+{
+	data = ((Decimal('0.0521389757000') Decimal('0.9478610243000')));
+}
+
+potential ( M | A )
+{
+	data = ((Decimal('0.7') Decimal('0.3')) (Decimal('0.01') Decimal('0.99')));
+}
+

@@ -1,0 +1,72 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@36f3f021";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@b1cbc13";
+	node_size = (130 55);
+}
+
+node A
+{
+	states = ("On" "Off");
+	ID = "A";
+	position = (310 252);
+	label = "Alarm";
+}
+
+node E
+{
+	states = ("Present" "Absent");
+	ID = "E";
+	position = (442 130);
+	label = "Earthquake";
+}
+
+node B
+{
+	states = ("Present" "Absent");
+	ID = "B";
+	position = (169 128);
+	label = "Burglary";
+}
+
+node J
+{
+	states = ("Present" "Absent");
+	ID = "J";
+	position = (179 367);
+	label = "JohnCalls";
+}
+
+node M
+{
+	states = ("Present" "Absent");
+	ID = "M";
+	position = (446 365);
+	label = "MaryCalls";
+}
+
+potential ( A | M J )
+{
+	data = ((Decimal('0.76069203886310767800') Decimal('0.23930796113689232200')) (Decimal('0.018249738245007478100') Decimal('0.98175026175499252190')) (Decimal('0.013573889331307630241') Decimal('0.98642611066869236976')) (Decimal('0.000080465309688836211459') Decimal('0.99991953469031116379')));
+}
+
+potential ( E | A )
+{
+	data = ((Decimal('0.23100870196889099769') Decimal('0.76899129803110900231')) (Decimal('0.0014222590323639199274') Decimal('0.99857774096763608007')));
+}
+
+potential ( B | A E )
+{
+	data = ((Decimal('0.0032684235876969655267') Decimal('0.99673157641230303447')) (Decimal('0.48478597215059308922') Decimal('0.51521402784940691078')) (Decimal('0.000070488059322750726027') Decimal('0.99992951194067724927')) (Decimal('0.000060116566021515718979') Decimal('0.99993988343397848428')));
+}
+
+potential ( J | M )
+{
+	data = ((Decimal('0.17757660008729566162') Decimal('0.82242339991270433838')) (Decimal('0.050649313274590689804') Decimal('0.94935068672540931020')));
+}
+
+potential ( M |  )
+{
+	data = ((Decimal('0.0117363449800') Decimal('0.9882636550200')));
+}
+
