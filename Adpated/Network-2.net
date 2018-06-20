@@ -1,55 +1,70 @@
 net
 {
-	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@7373d1cb";
-	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@2db706c6";
-	node_size = (130 55);
+    node_size = (70 20);
 }
 
-node SF
+node P
 {
-	states = ("T" "F" );
-	position = (330 -157);
-	ID = "SF";
-	label = "Stone found";
+	states = ("true" "false");
+	ID = "Psych_report";
+	position = (100 80);
+	label = "Psych_report";
 }
-node BW
+
+node M
 {
-	states = ("T" "F" );
-	position = (145 -158);
-	ID = "BW";
-	label = "Broken window";
+	states = ("true" "false");
+	ID = "Motive";
+	position = (150 150);
+	label = "Motive";
 }
-node TB
+
+node C
 {
-	states = ("T" "F" );
-	position = (52 -58);
-	ID = "TB";
-	label = "Tree branch";
+	states = ("true" "false");
+	ID = "Crime";
+	position = (200 80);
+	label = "Crime";
 }
-node ST
+
+node D
 {
-	states = ("T" "F" );
-	position = (241 -59);
-	ID = "ST";
-	label = "Stone thrown";
+	states = ("true" "false");
+	ID = "DNA_match";
+	position = (250 10);
+	label = "DNA_match";
 }
-potential ( SF | ST )
+
+node T
 {
-	data = ((	0.871239	0.128761	)
-		(	0.000012	0.999988	));
+	states = ("true" "false");
+	ID = "Twin";
+	position = (300 80);
+	label = "Twin";
 }
-potential ( BW | TB ST )
+
+potential ( M |  )
 {
-	data = (((	0.990002	0.009998	)
-		(	0.875987	0.124013	))
-		((	0.100233	0.899767	)
-		(	0.001001	0.998999	)));
+	data = (0.052412 0.947588);
 }
-potential ( TB | )
+
+potential ( P | M )
 {
-	data = (	0.001032	0.998968	);
+	data = ((0.612421 0.387579) (0.124001 0.875999));
 }
-potential ( ST | )
+
+potential ( C | M )
 {
-	data = (	0.011232	0.988768	);
+	data = ((0.514312 0.485688) (0.010231 0.989769));
+}
+
+potential ( D | C T )
+{
+	data = (((0.998132	0.001868) (	0.990230	0.00977	))
+		((	0.982212 0.017788	) (0.000001 0.999999)));
+}
+
+potential ( T |  )
+{
+	data = (0.012132 0.987868);
 }
