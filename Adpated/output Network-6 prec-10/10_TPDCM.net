@@ -1,0 +1,70 @@
+net
+{
+    node_size = (70 20);
+}
+
+node P
+{
+	states = ("true" "false");
+	ID = "P";
+	position = (100 80);
+	label = "Psych_report";
+}
+
+node C
+{
+	states = ("true" "false");
+	ID = "C";
+	position = (200 80);
+	label = "Crime";
+}
+
+node M
+{
+	states = ("true" "false");
+	ID = "M";
+	position = (150 150);
+	label = "Motive";
+}
+
+node D
+{
+	states = ("true" "false");
+	ID = "D";
+	position = (250 10);
+	label = "DNA_match";
+}
+
+node T
+{
+	states = ("true" "false");
+	ID = "T";
+	position = (300 80);
+	label = "Twin";
+}
+
+potential ( P | T )
+{
+	data = ((Decimal('0.1496000692') Decimal('0.8503999308')) (Decimal('0.1496000690') Decimal('0.8503999310')));
+}
+
+potential ( C | T P D )
+{
+	data = ((Decimal('0.1200751245') Decimal('0.8799248751')) (Decimal('0.01390570161') Decimal('0.9860942982')) (Decimal('0.02262497975') Decimal('0.9773750200')) (Decimal('0.002386471770') Decimal('0.9976135286')) (Decimal('0.9999924802') Decimal('0.000007520313534')) (Decimal('0.001310238338') Decimal('0.9986897622')) (Decimal('0.9999556699') Decimal('0.00004433027720')) (Decimal('0.0002225064346') Decimal('0.9997774935')));
+}
+
+potential ( M | T P D C )
+{
+	data = ((Decimal('0.9321221341') Decimal('0.06787786613')) (Decimal('0.1182029305') Decimal('0.8817970696')) (Decimal('0.9321221339') Decimal('0.06787786614')) (Decimal('0.1182029305') Decimal('0.8817970694')) (Decimal('0.5516100954') Decimal('0.4483899046')) (Decimal('0.01186607647') Decimal('0.9881339235')) (Decimal('0.5516100956') Decimal('0.4483899044')) (Decimal('0.01186607647') Decimal('0.9881339234')) (Decimal('0.9321221336') Decimal('0.06787786611')) (Decimal('0.1182029305') Decimal('0.8817970697')) (Decimal('0.9321221340') Decimal('0.06787786616')) (Decimal('0.1182029305') Decimal('0.8817970697')) (Decimal('0.5516100953') Decimal('0.4483899045')) (Decimal('0.01186607647') Decimal('0.9881339235')) (Decimal('0.5516100954') Decimal('0.4483899044')) (Decimal('0.01186607647') Decimal('0.9881339235')));
+}
+
+potential ( D | T P )
+{
+	data = ((Decimal('0.9840967161') Decimal('0.01590328402')) (Decimal('0.9825665732') Decimal('0.01743342733')) (Decimal('0.1172309258') Decimal('0.8827690739')) (Decimal('0.02205553198') Decimal('0.9779444680')));
+}
+
+potential ( T |  )
+{
+	data = ((Decimal('0.01213200000') Decimal('0.9878680001')));
+}
+

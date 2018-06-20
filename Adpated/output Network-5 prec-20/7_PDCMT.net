@@ -1,0 +1,70 @@
+net
+{
+    node_size = (70 20);
+}
+
+node P
+{
+	states = ("true" "false");
+	ID = "P";
+	position = (100 80);
+	label = "Psych_report";
+}
+
+node C
+{
+	states = ("true" "false");
+	ID = "C";
+	position = (200 80);
+	label = "Crime";
+}
+
+node M
+{
+	states = ("true" "false");
+	ID = "M";
+	position = (150 150);
+	label = "Motive";
+}
+
+node D
+{
+	states = ("true" "false");
+	ID = "D";
+	position = (250 10);
+	label = "DNA_match";
+}
+
+node T
+{
+	states = ("true" "false");
+	ID = "T";
+	position = (300 80);
+	label = "Twin";
+}
+
+potential ( P |  )
+{
+	data = ((Decimal('0.1250000000') Decimal('0.8750000000')));
+}
+
+potential ( C | P D )
+{
+	data = ((Decimal('0.93011270196019648296') Decimal('0.069887298039803517045')) (Decimal('0E+2') Decimal('1')) (Decimal('0.66339118313063812099') Decimal('0.33660881686936187901')) (Decimal('0E+2') Decimal('1')));
+}
+
+potential ( M | P C )
+{
+	data = ((Decimal('0.94043887147335423197') Decimal('0.059561128526645768025')) (Decimal('0.13755158184319119670') Decimal('0.86244841815680880330')) (Decimal('0.53908355795148247978') Decimal('0.46091644204851752022')) (Decimal('0.011676104851421565766') Decimal('0.98832389514857843423')));
+}
+
+potential ( D | P )
+{
+	data = ((Decimal('0.137187676') Decimal('0.862812324')) (Decimal('0.031957012') Decimal('0.968042988')));
+}
+
+potential ( T | D C )
+{
+	data = ((Decimal('0.01') Decimal('0.99')) (Decimal('0.90991810737033666970') Decimal('0.090081892629663330300')) (Decimal('-1') Decimal('-1')) (Decimal('0E+2') Decimal('1')));
+}
+

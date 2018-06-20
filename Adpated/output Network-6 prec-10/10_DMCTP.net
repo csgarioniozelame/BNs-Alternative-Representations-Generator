@@ -1,0 +1,70 @@
+net
+{
+    node_size = (70 20);
+}
+
+node P
+{
+	states = ("true" "false");
+	ID = "P";
+	position = (100 80);
+	label = "Psych_report";
+}
+
+node C
+{
+	states = ("true" "false");
+	ID = "C";
+	position = (200 80);
+	label = "Crime";
+}
+
+node M
+{
+	states = ("true" "false");
+	ID = "M";
+	position = (150 150);
+	label = "Motive";
+}
+
+node D
+{
+	states = ("true" "false");
+	ID = "D";
+	position = (250 10);
+	label = "DNA_match";
+}
+
+node T
+{
+	states = ("true" "false");
+	ID = "T";
+	position = (300 80);
+	label = "Twin";
+}
+
+potential ( P | D M C T )
+{
+	data = ((Decimal('0.6124210001') Decimal('0.3875789999')) (Decimal('0.6124210001') Decimal('0.3875789999')) (Decimal('0.6124209999') Decimal('0.3875790001')) (Decimal('0.6124210000') Decimal('0.3875790001')) (Decimal('0.1240009999') Decimal('0.8759990004')) (Decimal('0.1240009999') Decimal('0.8759990001')) (Decimal('0.1240010001') Decimal('0.8759989998')) (Decimal('0.1240010001') Decimal('0.8759989999')) (Decimal('0.6124210001') Decimal('0.3875789999')) (Decimal('0.6124210000') Decimal('0.3875790000')) (Decimal('0.6124209999') Decimal('0.3875790001')) (Decimal('0.6124209999') Decimal('0.3875790002')) (Decimal('0.1240010000') Decimal('0.8759990001')) (Decimal('0.1240010000') Decimal('0.8759990000')) (Decimal('0.1240010000') Decimal('0.8759990001')) (Decimal('0.1240010001') Decimal('0.8759989999')));
+}
+
+potential ( C | D M )
+{
+	data = ((Decimal('0.9887638174') Decimal('0.01123618286')) (Decimal('0.4620738420') Decimal('0.5379261574')) (Decimal('0.01026144395') Decimal('0.9897385558')) (Decimal('0.0001011949852') Decimal('0.9998988050')));
+}
+
+potential ( M | D )
+{
+	data = ((Decimal('0.5651015116') Decimal('0.4348984884')) (Decimal('0.02668837773') Decimal('0.9733116222')));
+}
+
+potential ( D |  )
+{
+	data = ((Decimal('0.04777673617') Decimal('0.9522232639')));
+}
+
+potential ( T | D M C )
+{
+	data = ((Decimal('0.01222762913') Decimal('0.9877723708')) (Decimal('0.9999171054') Decimal('0.00008289441634')) (Decimal('0.01222762913') Decimal('0.9877723708')) (Decimal('0.9999171060') Decimal('0.00008289441637')) (Decimal('0.002342595058') Decimal('0.9976574051')) (Decimal('0.0002184068102') Decimal('0.9997815932')) (Decimal('0.002342595056') Decimal('0.9976574049')) (Decimal('0.0002184068102') Decimal('0.9997815932')));
+}
+
