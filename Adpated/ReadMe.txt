@@ -10,8 +10,10 @@ The naming convention for the found networks is:
 
 [arrow_count]_[permutation].net
 
-To run the algorithm:
+To run the algorithm (only works for Python 2):
 
 python BNexpander.py Network-X.net
+
+Then you need to set the precision places you want to use: this should be an integer and as large as you need.
 
 This will create a new folder with the same root as BNexpander.py and fill it with all alternative representations.
