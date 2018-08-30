@@ -1,9 +1,9 @@
-THESE ARE THE CODES FOR AN ONGOING BACHELOR PROJECT. 
+These are the codes for a completed bachelor project. 
 
-THEY ARE USED TO GENERATE ALL POSSIBLE ALTERNATIVE BAYESIAN NETWORKS (BN) GIVEN AN INPUT BN.
+They are used to generate all possible alternative bayesian networks (bn) given an input bn.
 
-THEY CANNOT BE USED, COPIED, SPREADED WITHOUT PERMISSION.
+They cannot be used, copied, spreaded without permission.
 
-COPYRIGHT BELONGS TO KAI LIANG (k.liang.2@student.rug.nl).
+Copyright belongs to Kai Liang (kai.liang@student.uva.nl).
 
-THANK YOU FOR NOTICING.
+Thank you for noticing.
