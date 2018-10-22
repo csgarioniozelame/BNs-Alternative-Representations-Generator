@@ -15,6 +15,6 @@
 - The naming of the alternative representation is: [arrow_count]_[permutation].net
 
 
-## Copyright information
+## Copyright
 - They cannot be used, copied, spreaded without permission.
 - Copyright belongs to Kai Liang (kai.liang@student.uva.nl).
